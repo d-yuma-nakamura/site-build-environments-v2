@@ -13,3 +13,7 @@ preview: build
 # フォーマッタ
 format:
 	npx prettier . --write
+
+# リンタ
+lint:
+	npx eslint "src/**/*.{js,astro}" --fix
