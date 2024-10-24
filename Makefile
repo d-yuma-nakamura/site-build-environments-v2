@@ -16,4 +16,5 @@ format:
 
 # リンタ
 lint:
-	npx eslint "src/**/*.{js,astro}" --fix
+	npx eslint "src/**/*.{js,astro}" --fix && \
+	npx stylelint "**/*.css" --allow-empty-input --fix
