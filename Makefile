@@ -18,3 +18,7 @@ format:
 lint:
 	npx eslint "src/**/*.{js,astro}" --fix && \
 	npx stylelint "**/*.css" --allow-empty-input --fix
+
+# テスト
+test:
+	npm test -- --passWithNoTests
