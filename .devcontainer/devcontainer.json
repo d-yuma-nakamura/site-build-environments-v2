@@ -1,0 +1,29 @@
+{
+  // Dev Containerの名称の設定
+  "name": "site-build-environments-v2",
+
+  // 使用するDockerfileのパスの指定
+  "dockerFile": "Dockerfile",
+
+  // VS Codeのエディタや設定のカスタマイズ項目を指定する場所
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "prettier.documentSelectors": ["**/*.astro"],
+        "[astro]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-ceintl.vscode-language-pack-ja",
+        "astro-build.astro-vscode",
+        "sheltonlouis.astro-snippets",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // ローカル環境からコンテナに転送するポートのリストの設定
+  "forwardPorts": [4321]
+}

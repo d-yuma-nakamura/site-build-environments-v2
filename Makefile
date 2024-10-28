@@ -1,3 +1,7 @@
+# 依存関係のインストール
+install:
+	npm install
+
 # 開発サーバーを起動
 dev:
 	npm run dev
