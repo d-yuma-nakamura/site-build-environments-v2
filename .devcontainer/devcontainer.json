@@ -24,6 +24,9 @@
     }
   },
 
+  // コンテナ起動後に実行されるコマンドの設定
+  "postStartCommand": "git config --global --add safe.directory /workspaces/site-build-environments-v2 && npm install",
+
   // ローカル環境からコンテナに転送するポートのリストの設定
   "forwardPorts": [4321]
 }
