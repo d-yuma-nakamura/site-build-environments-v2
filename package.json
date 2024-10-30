@@ -2,6 +2,10 @@
   "name": "site-build-environments-v2",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "sites/*"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
