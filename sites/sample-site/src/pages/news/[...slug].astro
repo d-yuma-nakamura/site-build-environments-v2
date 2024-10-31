@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/NewsLayout.astro";
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection("news");
+  return newsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <div class="news-content">
+    <Content />
+  </div>
+</Layout>
+
+<style>
+  .news-content {
+    min-height: 100vh;
+    margin-top: 100px;
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+  }
+</style>

@@ -19,7 +19,8 @@
         "ms-ceintl.vscode-language-pack-ja",
         "astro-build.astro-vscode",
         "sheltonlouis.astro-snippets",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "unifiedjs.vscode-mdx"
       ]
     }
   },

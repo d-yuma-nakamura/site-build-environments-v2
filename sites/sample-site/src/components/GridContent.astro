@@ -1,0 +1,52 @@
+---
+interface Props {
+  col?: number;
+}
+const { col = 3 } = Astro.props;
+---
+
+<div class="content-list">
+  <div class="content">content1</div>
+  <div class="content">content2</div>
+  <div class="content">content3</div>
+  <div class="content">content4</div>
+  <div class="content">content5</div>
+</div>
+
+<style define:vars={{ col }}>
+  .content-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--col), 1fr);
+    column-gap: 10px;
+  }
+
+  .content-list .content {
+    margin-top: 1em;
+    margin-right: 10px;
+    height: 350px;
+
+    background-color: gray;
+    border: solid;
+  }
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+    .content-list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    .content-list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 10px;
+    }
+  }
+</style>
