@@ -1,0 +1,80 @@
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+
+  /* background: whitesmoke; */
+  background: linear-gradient(
+    45deg,
+    #252c35 0%,
+    #252c35 60%,
+    whitesmoke 50%,
+    whitesmoke 100%
+  );
+}
+
+code {
+  font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 70%;
+  min-height: 100vh;
+  margin: 100px auto;
+  column-gap: 20px;
+  grid-template-areas: "sd main main main main";
+}
+
+.sidebar {
+  grid-area: sd;
+  background-color: white;
+  box-shadow: inset;
+  border-radius: 1rem;
+}
+
+.menu {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.menu ul li {
+  list-style: none;
+  display: inline-block;
+  margin-top: 2em;
+  font-size: medium;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu ul li a:hover {
+  color: black;
+}
+
+.content {
+  grid-area: main;
+  background-color: white;
+  box-shadow: inset;
+}

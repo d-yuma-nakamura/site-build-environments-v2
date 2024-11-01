@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="blog-list">
+    {
+      blogEntries.map((blogPost) => (
+        <>
+          <BlogCard
+            imagePath={blogPost.data.thumbnail}
+            title={blogPost.data.title}
+            date={blogPost.data.date}
+            slug={blogPost.slug}
+          />
+          <hr class="divider" />
+        </>
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  .divider {
+    border: 0;
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+  }
+</style>
