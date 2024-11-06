@@ -1,0 +1,32 @@
+---
+import { turso } from "../turso";
+
+const { id } = Astro.props;
+
+const { rows } = await turso.execute(`SELECT * FROM news WHERE id = ${id}`);
+const news = rows[0] || null;
+---
+
+{
+  news ? (
+    <article>
+      <h1>{news.title}</h1>
+      <br />
+      <p>投稿日: {news.publish_date}</p>
+      <br />
+      <p>{news.description}</p>
+      <br />
+      {news.subtitle && <h2>{news.subtitle}</h2>}
+      <br />
+      <p>{news.content}</p>
+    </article>
+  ) : (
+    <p>ニュースはありません。</p>
+  )
+}
+
+<style>
+  h1 {
+    font-size: 2rem;
+  }
+</style>
