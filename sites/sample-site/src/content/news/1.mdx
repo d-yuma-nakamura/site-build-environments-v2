@@ -1,0 +1,24 @@
+---
+title: "私の最初のブログ記事"
+pubDate: 2022-07-01
+description: "Astroの学習についての私の _新しいブログ_ へようこそ！ここでは、新しいウェブサイトを作りながら、私の学習過程を共有します。"
+author: "Astro学習者"
+image:
+  url: "../../../public/astro-eyecatch-3.webp"
+  alt: "Astroのロゴ。"
+tags: ["astro", "ブログ", "公開学習"]
+---
+
+import { Image } from "astro:assets";
+import JukusenHeroImage from "../../../public/astro-eyecatch-3.webp";
+import News from "../../components/News.astro";
+
+<News id={1} />
+
+<Image
+  src={JukusenHeroImage}
+  alt="画像"
+  width="1000"
+  height="500"
+  class="hero-image"
+/>
