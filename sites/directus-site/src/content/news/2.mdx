@@ -1,0 +1,24 @@
+---
+title: "私の最初のブログ記事"
+pubDate: 2024-11-12
+description: "Dev Containerについての記事です。"
+author: "Astro学習者"
+image:
+  url: "../../../public/astro-eyecatch-3.webp"
+  alt: "Astroのロゴ。"
+tags: ["Dev Container"]
+---
+
+import { Image } from "astro:assets";
+import JukusenHeroImage from "../../../public/astro-eyecatch-3.webp";
+import News from "../../components/News.astro";
+
+<News id={2} />
+
+<Image
+  src={JukusenHeroImage}
+  alt="画像"
+  width="1000"
+  height="500"
+  class="hero-image"
+/>

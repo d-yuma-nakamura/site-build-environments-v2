@@ -1,0 +1,38 @@
+---
+import { readItems } from "@directus/sdk";
+
+import directus from "../lib/directus";
+
+const { id } = Astro.props;
+
+const newsResponse = await directus.request(
+  readItems("news", {
+    filter: { id: { _eq: id } },
+  }),
+);
+const news = newsResponse[0] || null;
+---
+
+{
+  news ? (
+    <article>
+      <h1>{news.title}</h1>
+      <br />
+      <p>投稿日: {new Date(news.publish_date).toLocaleDateString("ja-JP")}</p>
+      <br />
+      <p>{news.description}</p>
+      <br />
+      {news.subtitle && <h2>{news.subtitle}</h2>}
+      <br />
+      <p>{news.content}</p>
+    </article>
+  ) : (
+    <p>ニュースはありません。</p>
+  )
+}
+
+<style>
+  h1 {
+    font-size: 2rem;
+  }
+</style>

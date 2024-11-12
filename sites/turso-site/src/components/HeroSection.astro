@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+
+import JukusenHeroImage from "../../public/hero-section.png";
+---
+
+<div class="hero-section">
+  <Image src={JukusenHeroImage} alt="鳥。" class={"hero-image"} />
+  <div class="hero-description">
+    <p>Turso</p>
+    <p>お子様に最適な塾を</p>
+    <p>お探しならジュクセン！</p>
+    <a href="https://bestjuku.com/">
+      <button type="button" class="jukusen-link-button"> 塾を探す </button>
+    </a>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bold;
+    width: 70%;
+    margin: auto;
+  }
+
+  .hero-image {
+    width: 40%;
+    height: 300px;
+  }
+
+  .hero-description {
+    /* padding: 50px 30px; */
+    width: auto;
+  }
+
+  .jukusen-link-button {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #e6332a;
+    border-color: #e6332a;
+    color: white;
+    font-size: large;
+    margin-top: 30px;
+  }
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+    .hero-section {
+      margin-top: 10px;
+      font-size: small;
+      font-weight: bold;
+    }
+    .hero-image {
+      margin-right: 50px;
+      width: 50%;
+      height: 200px;
+    }
+    .jukusen-link-button {
+      width: 150px;
+      height: 30px;
+      font-size: medium;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    .hero-section {
+      width: 100%;
+      font-size: small;
+      font-weight: bold;
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+    }
+    .jukusen-link-button {
+      width: 200px;
+      height: 50px;
+      font-size: medium;
+    }
+  }
+</style>
