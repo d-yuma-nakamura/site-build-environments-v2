@@ -1,6 +1,7 @@
 import { createDirectus, rest } from "@directus/sdk";
 
 type News = {
+  id: number;
   title: string;
   publish_date: Date;
   description: string;
@@ -10,7 +11,7 @@ type News = {
 };
 
 type Schema = {
-  news: News;
+  news: News[];
 };
 
 const directus = createDirectus<Schema>("http://localhost:8055/").with(rest());

@@ -1,83 +1,50 @@
 ---
-import { readSingleton } from "@directus/sdk";
-
+import HeroSection from "../components/HeroSection.astro";
 import Layout from "../layouts/Layout.astro";
-import directus from "../lib/directus";
-
-const news = await directus.request(readSingleton("news"));
+import NewsList from "../components/NewsList.astro";
+import GridContent from "../components/GridContent.astro";
 ---
 
-<Layout title={news.title}>
+<Layout title="sample_site">
   <main>
-    <div>
-      <h1>{news.title}</h1>
-      <p>{news.publish_date}</p>
-      <p>{news.description}</p>
-      <p>{news.subtitle}</p>
-      <p>{news.content}</p>
-      <p>{news.tags}</p>
-    </div>
+    <section class="hero-content">
+      <HeroSection />
+    </section>
+    <hr class="divider" />
+    <section class="grid-content">
+      <h2>記事リスト</h2>
+      <GridContent />
+    </section>
+    <hr class="divider" />
+    <section class="news-content">
+      <NewsList />
+    </section>
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
+    margin-top: 150px;
   }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
+
+  .grid-content {
+    position: relative;
+    width: 65%;
+    margin: 50px auto;
   }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
+
+  .divider {
+    margin-top: 10px;
   }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+    .grid-content {
+      width: 80%;
+      margin: 10px auto;
+    }
   }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
+  @media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
   }
 </style>
