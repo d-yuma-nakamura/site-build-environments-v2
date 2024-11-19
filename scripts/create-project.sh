@@ -4,6 +4,7 @@
 PROJECT="$1"
 if [ -z "$PROJECT" ]; then
   echo "エラー: プロジェクト名が指定されていません。"
+  echo "使用方法: ./create-astro-project.sh <プロジェクト名>"
   exit 1
 fi
 
