@@ -1,0 +1,32 @@
+<div class="content">
+  <h2 class="section-title">NEWS</h2>
+  {
+    Array.from({ length: 10 }, (_, category) =>
+      Array.from({ length: 100 }, (_, i) => {
+        const displayNum = i + 1 + category * 100;
+        return (
+          <dl>
+            <dt>2024年11月22日</dt>
+            <dd>
+              <a href={`/news/${category + 1}/${i + 1}/`}>news {displayNum}</a>
+            </dd>
+          </dl>
+        );
+      }),
+    )
+  }
+  <dl>
+    <a href="/news/" style="font-weight: 700;">ニュース一覧へ &gt;</a>
+  </dl>
+</div>
+
+<style>
+  .content {
+    width: 65%;
+    margin: 10px auto;
+  }
+
+  .content dl {
+    width: auto;
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+import HeroSection from "../components/HeroSection.astro";
+import Layout from "../layouts/Layout.astro";
+import NewsList from "../components/NewsList.astro";
+import GridContent from "../components/GridContent.astro";
+---
+
+<Layout title="sample_site">
+  <main>
+    <section class="hero-content">
+      <HeroSection />
+    </section>
+    <hr class="divider" />
+    <section class="grid-content">
+      <h2>記事リスト</h2>
+      <GridContent />
+    </section>
+    <hr class="divider" />
+    <section class="news-content">
+      <NewsList />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin-top: 150px;
+  }
+
+  .grid-content {
+    position: relative;
+    width: 65%;
+    margin: 50px auto;
+  }
+
+  .divider {
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+    .grid-content {
+      width: 80%;
+      margin: 10px auto;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+  }
+</style>
